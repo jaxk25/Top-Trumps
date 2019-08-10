@@ -30,7 +30,7 @@ def menu():
             menu()
             
 def game():
-      f=open("cards.txt", "r")#open dogs.txt in read mode
+      f=open("cards.pyt", "r")#open dogs.txt in read mode
       if f.mode == 'r': #if opened correctly in read mode, do
             contents = f.read()
             minions,footballers = contents.split(";")
