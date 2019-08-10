@@ -15,7 +15,10 @@ def menu():
             game()
       elif selection == 'help' or selection == '2':
             clear()
-            print("Coming Soon!")
+            print("Welcome to this Top Trumps game!\n\nHelp and Instructions:\nWhen in the main menu, press 1 to\nplay the game, 2 to view this again\nor 3 to quit.\nAlternatively you can type\nPlay Game, Help or Quit.\nThis is case insensitive.\nIf you chose 1 or Play Game, you\ncan type 1 or minions to use the\nminions card set (5 cards each),\nor, 2 or footballers to use the\nfootballers card set (10 cards each).\nOnce you have done this, you can\ntype Intelligence, Excitement or\nLeadership to select that category.\nIf your score is higher, you win\nand get both cards, if you draw,\nyou keep your card, and if you\nlose, the computer gets both cards.\nThe game ends when either you, or\nthe computer has all the cards\nand has won.\n")
+            raw_input("Press RETURN to return to the menu\n>>> ")
+            clear()
+            menu()
       elif selection == 'quit' or selection == '3':
             clear()
             raw_input("Press RETURN to quit\n>>> ")
@@ -202,16 +205,17 @@ def game():
             if len(computer_cards) == 0:
                   clear()
                   print("You won!")
-                  raw_input("Press RETURN to return to the menu\n>>> ")
+                  raw_input("Press RETURN to quit\n>>> ")
                   clear()
-                  menu()
+                  quit()
             elif len(player_cards) == 0:
                   clear()
                   print("The computer won!")
-                  raw_input("Press RETURN to return to the menu\n>>> ")
+                  raw_input("Press RETURN to quit\n>>> ")
                   clear()
-                  menu()
+                  quit()
             clear()
+            print("The computer's card is:\nName: " +computer_cards[len(computer_cards)-1]["name"] +"\n")
             print("Your card is:\nName: " +player_cards[len(player_cards)-1]["name"] +"\nIntelligence: " +str(player_cards[len(player_cards)-1]["intelligence"]) +"\nExcitement: " +str(player_cards[len(player_cards)-1]["excitement"]) +"\nLeadership: " +str(player_cards[len(player_cards)-1]["leadership"]))
             chooser = "player"
             if chooser == 'player':
@@ -221,6 +225,7 @@ def game():
                         if player_cards[len(player_cards)-1]['intelligence'] > computer_cards[len(computer_cards)-1]['intelligence']:
                               clear()
                               print("You won!")
+                              print("Your score: " +str(player_cards[len(player_cards)-1]['intelligence']) +"\nComputer's Score: " +str(computer_cards[len(computer_cards)-1]['intelligence']) +"\n")
                               raw_input("Press RETURN to continue\n>>> ")
                               player_cards.insert(0,computer_cards[len(computer_cards)-1])
                               player_cards.insert(0,player_cards[len(player_cards)-1])
@@ -230,6 +235,7 @@ def game():
                         elif player_cards[len(player_cards)-1]['intelligence'] == computer_cards[len(computer_cards)-1]['intelligence']:
                               clear()
                               print("You drew!")
+                              print("Your score: " +str(player_cards[len(player_cards)-1]['intelligence']) +"\nComputer's Score: " +str(computer_cards[len(computer_cards)-1]['intelligence']) +"\n")
                               raw_input("Press RETURN to continue\n>>> ")
                               player_cards.insert(0,player_cards[len(player_cards)-1])
                               player_cards.pop(len(player_cards)-1)
@@ -239,6 +245,7 @@ def game():
                         elif player_cards[len(player_cards)-1]['intelligence'] < computer_cards[len(computer_cards)-1]['intelligence']:
                               clear()
                               print("The computer won!")
+                              print("Your score: " +str(player_cards[len(player_cards)-1]['intelligence']) +"\nComputer's Score: " +str(computer_cards[len(computer_cards)-1]['intelligence']) +"\n")
                               raw_input("Press RETURN to continue\n>>> ")
                               computer_cards.insert(0,player_cards[len(player_cards)-1])
                               computer_cards.insert(0,computer_cards[len(computer_cards)-1])
@@ -249,6 +256,7 @@ def game():
                         if player_cards[len(player_cards)-1]['excitement'] > computer_cards[len(computer_cards)-1]['excitement']:
                               clear()
                               print("You won!")
+                              print("Your score: " +str(player_cards[len(player_cards)-1]['excitement']) +"\nComputer's Score: " +str(computer_cards[len(computer_cards)-1]['excitement']) +"\n")
                               raw_input("Press RETURN to continue\n>>> ")
                               player_cards.insert(0,computer_cards[len(computer_cards)-1])
                               player_cards.insert(0,player_cards[len(player_cards)-1])
@@ -258,6 +266,7 @@ def game():
                         elif player_cards[len(player_cards)-1]['excitement'] == computer_cards[len(computer_cards)-1]['excitement']:
                               clear()
                               print("You drew!")
+                              print("Your score: " +str(player_cards[len(player_cards)-1]['excitement']) +"\nComputer's Score: " +str(computer_cards[len(computer_cards)-1]['excitement']) +"\n")
                               raw_input("Press RETURN to continue\n>>> ")
                               player_cards.insert(0,player_cards[len(player_cards)-1])
                               player_cards.pop(len(player_cards)-1)
@@ -267,6 +276,7 @@ def game():
                         elif player_cards[len(player_cards)-1]['excitement'] < computer_cards[len(computer_cards)-1]['excitement']:
                               clear()
                               print("The computer won!")
+                              print("Your score: " +str(player_cards[len(player_cards)-1]['excitement']) +"\nComputer's Score: " +str(computer_cards[len(computer_cards)-1]['excitement']) +"\n")
                               raw_input("Press RETURN to continue\n>>> ")
                               computer_cards.insert(0,player_cards[len(player_cards)-1])
                               computer_cards.insert(0,computer_cards[len(computer_cards)-1])
@@ -277,6 +287,7 @@ def game():
                         if player_cards[len(player_cards)-1]['leadership'] > computer_cards[len(computer_cards)-1]['leadership']:
                               clear()
                               print("You won!")
+                              print("Your score: " +str(player_cards[len(player_cards)-1]['leadership']) +"\nComputer's Score: " +str(computer_cards[len(computer_cards)-1]['leadership']) +"\n")
                               raw_input("Press RETURN to continue\n>>> ")
                               player_cards.insert(0,computer_cards[len(computer_cards)-1])
                               player_cards.insert(0,player_cards[len(player_cards)-1])
@@ -286,6 +297,7 @@ def game():
                         elif player_cards[len(player_cards)-1]['leadership'] == computer_cards[len(computer_cards)-1]['leadership']:
                               clear()
                               print("You drew!")
+                              print("Your score: " +str(player_cards[len(player_cards)-1]['leadership']) +"\nComputer's Score: " +str(computer_cards[len(computer_cards)-1]['leadership']) +"\n")
                               raw_input("Press RETURN to continue\n>>> ")
                               player_cards.insert(0,player_cards[len(player_cards)-1])
                               player_cards.pop(len(player_cards)-1)
@@ -295,6 +307,7 @@ def game():
                         elif player_cards[len(player_cards)-1]['leadership'] < computer_cards[len(computer_cards)-1]['leadership']:
                               clear()
                               print("The computer won!")
+                              print("Your score: " +str(player_cards[len(player_cards)-1]['leadership']) +"\nComputer's Score: " +str(computer_cards[len(computer_cards)-1]['leadership']) +"\n")
                               raw_input("Press RETURN to continue\n>>> ")
                               computer_cards.insert(0,player_cards[len(player_cards)-1])
                               computer_cards.insert(0,computer_cards[len(computer_cards)-1])
